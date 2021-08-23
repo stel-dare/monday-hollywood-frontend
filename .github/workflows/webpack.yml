@@ -26,3 +26,11 @@ jobs:
     - name: Build
       run: |
         npm install
+        
+    - name: Build docker image
+      shell: bash
+      env:
+        GIT_SSH_COMMAND: "ssh -o StrictHostKeyChecking=no"
+      run: |
+        eval "$(ssh-agent -s)"
+        DOCKER_BUILDKIT=1 docker build  .
