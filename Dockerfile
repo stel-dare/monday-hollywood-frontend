@@ -3,7 +3,7 @@ FROM node:14.15.1-alpine3.12 AS builder
 
 WORKDIR /app
 
-COPY package.lock  package.json .
+COPY package-lock.json package.json .
 
 RUN npm install
 
